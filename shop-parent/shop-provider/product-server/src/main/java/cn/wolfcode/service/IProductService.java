@@ -15,4 +15,12 @@ public interface IProductService {
      * @return
      */
     List<Product> queryByPIds(List<Long> pids);
+
+    /**
+     * 根据商品ID查询对应商品信息
+     * @param pid
+     * @return
+     */
+
+    Product findByPid(Long pid);
 }

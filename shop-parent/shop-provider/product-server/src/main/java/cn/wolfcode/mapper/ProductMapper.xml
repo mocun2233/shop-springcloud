@@ -10,4 +10,11 @@
        </foreach>
     </where>
   </select>
+  <select id="findByPid" resultType="cn.wolfcode.domain.Product" parameterType="java.lang.Long">
+    select id,product_name,product_title,product_img,product_detail,product_price from t_product
+<where>
+  id = #{pid}
+</where>
+  </select>
+
 </mapper>

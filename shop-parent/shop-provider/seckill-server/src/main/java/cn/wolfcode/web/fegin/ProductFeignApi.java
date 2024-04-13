@@ -14,4 +14,7 @@ public interface ProductFeignApi {
 
     @RequestMapping("/product/queryByPIds")
     Result<List<Product>> queryByPids(@RequestParam("pids") List<Long> pids);
+
+    @RequestMapping("/product/findByPid")
+    Result<Product> findByPid(@RequestParam("pid") Long pid);
 }

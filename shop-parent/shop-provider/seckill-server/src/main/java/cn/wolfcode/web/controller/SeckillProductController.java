@@ -22,10 +22,27 @@ public class SeckillProductController {
     @Autowired
     private ISeckillProductService seckillProductService;
 
+    /**
+     * 根据秒杀时间获取首页商品
+     * @param time
+     * @return
+     */
     @RequestMapping("/queryByTime")
     public Result<List<SeckillProductVo>> queryByTime(Integer time){
         List<SeckillProductVo> productVoList=seckillProductService.queryByTime(time);
         return Result.success(productVoList );
+    }
+
+    /**
+     * 根据id查找商品详情页信息
+     * @param time
+     * @param seckillId
+     * @return
+     */
+    @RequestMapping("/find")
+    public Result<SeckillProductVo> find(Integer time,Long seckillId){
+        SeckillProductVo vp=seckillProductService.find(time,seckillId);
+        return Result.success(vp);
     }
 
 

@@ -70,4 +70,18 @@ public class SeckillProductServiceImpl implements ISeckillProductService {
 
 
     }
+    @Override
+    public SeckillProductVo find(Integer time, Long seckillId) {
+        SeckillProduct seckillProduct = seckillProductMapper.find(seckillId);
+        Result<Product> result = productFeignApi.findByPid(seckillProduct.getProductId());
+        if(result==null || result.hasError()){
+            throw new BusinessException(SeckillCodeMsg.PRODUCT_SERVER_ERROR);
+        }
+        Product product=result.getData();
+        SeckillProductVo vo=new SeckillProductVo();
+        //注意顺序 商品在前 秒杀在后
+        BeanUtils.copyProperties(product,vo);
+        BeanUtils.copyProperties(seckillProduct,vo);
+        return vo;
+    }
 }

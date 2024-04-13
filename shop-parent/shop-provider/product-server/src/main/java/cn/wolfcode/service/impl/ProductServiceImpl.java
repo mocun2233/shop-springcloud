@@ -26,4 +26,9 @@ public class ProductServiceImpl implements IProductService {
         List<Product> products = productMapper.queryProductByIds(pids);
         return products;
     }
+
+    @Override
+    public Product findByPid(Long pid) {
+        return productMapper.findByPid(pid);
+    }
 }

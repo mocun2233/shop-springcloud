@@ -26,4 +26,9 @@ public class ProductController {
         List<Product> productList=productService.queryByPIds(pids);
         return Result.success(productList);
     }
+    @RequestMapping("/findByPid")
+    public Result<Product> findByPid(Long pid){
+        Product product=productService.findByPid(pid);
+        return Result.success(product);
+    }
 }
