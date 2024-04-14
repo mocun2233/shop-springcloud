@@ -84,4 +84,13 @@ public class SeckillProductServiceImpl implements ISeckillProductService {
         BeanUtils.copyProperties(seckillProduct,vo);
         return vo;
     }
+
+    @Override
+    public void desrStockCount(Long seckillId) {
+
+
+        seckillProductMapper.decrStock(seckillId);
+
+
+    }
 }

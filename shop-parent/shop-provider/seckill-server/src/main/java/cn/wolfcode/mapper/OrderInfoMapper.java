@@ -39,4 +39,6 @@ public interface OrderInfoMapper {
      * @return
      */
     int changeOrderToPayStatus(@Param("orderNo") String orderNo, @Param("toStatus") Integer toStatus,@Param("fromStatus")Integer fromStatus, @Param("payType") int payType);
+
+    OrderInfo findByPhoneAndSeckillId(String phone, Long seckillId);
 }

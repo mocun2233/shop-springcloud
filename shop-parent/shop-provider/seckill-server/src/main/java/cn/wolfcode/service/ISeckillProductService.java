@@ -23,4 +23,6 @@ public interface ISeckillProductService {
      * @return
      */
     SeckillProductVo find(Integer time, Long seckillId);
+
+    void desrStockCount(Long seckillId);
 }
